@@ -9,7 +9,7 @@ export const Searchbar = ({ setRecipes }) => {
   console.log(query);
   async function fetchRecipes() {
     const response = await fetch(
-      `https://api.edamam.com/api/recipes/v2?q=${query}&type=public`,
+      `https://api.edamam.com/search?app_id=ba23c350&app_key=0a7d16d326e945d7c5abe3f3b6c3bdb5&q=${query}`,
     );
     const data = await response.json();
     setRecipes(data.hits);

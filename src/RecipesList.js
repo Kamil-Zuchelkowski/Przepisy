@@ -13,8 +13,8 @@ export const RecipesList = ({ recipes }) => {
       columnSpacing={5}
       padding={{ xs: 0, md: 3, lg: 5 }}
     >
-      {recipes.map((recipe) => (
-        <Grid item xs={12} md={6} lg={4}>
+      {recipes.map((recipe, index) => (
+        <Grid item key={index} xs={12} md={6} lg={4}>
           <StyledCard>
             <CardMedia
               sx={{ height: 140 }}
@@ -25,8 +25,13 @@ export const RecipesList = ({ recipes }) => {
               <Typography gutterBottom variant="h5" component="div">
                 {recipe.recipe.label}
               </Typography>
-              {recipe.recipe.ingredientLines.map((ingredientLine) => (
-                <Typography gutterBottom variant="body2" component="div">
+              {recipe.recipe.ingredientLines.map((ingredientLine, index) => (
+                <Typography
+                  gutterBottom
+                  key={index}
+                  variant="body2"
+                  component="div"
+                >
                   {ingredientLine}
                 </Typography>
               ))}
